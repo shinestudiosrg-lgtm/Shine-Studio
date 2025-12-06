@@ -150,7 +150,7 @@
     </select>
 
     <label>Pilih Paket</label>
-    <select id="paket" onchange="hitungTotal()">
+    <select id="pilihPaket" onchange="hitungTotal()">
       <option value="">-- Pilih paket --</option>
     </select>
 
@@ -236,14 +236,15 @@ function rupiah(n){
 
 function updatePaket(){
   const k = kategori.value;
-  paket.innerHTML = "<option value=''>-- Pilih paket --</option>";
+
+  pilihPaket.innerHTML = "<option value=''>-- Pilih paket --</option>";
   background.innerHTML = "<option value=''>-- Pilih background --</option>";
   
   (paketData[k]||[]).forEach(p=>{
     const opt = document.createElement('option');
     opt.value = p.price;
     opt.textContent = p.label;
-    paket.appendChild(opt);
+    pilihPaket.appendChild(opt);
   });
 
   (bgData[k]||[]).forEach(b=>{
@@ -257,9 +258,9 @@ function updatePaket(){
 }
 
 function hitungTotal(){
-  const price = Number(paket.value)||0;
-  const jumlah = Number(jumlah.value)||0;
-  const total = price * jumlah;
+  const price = Number(pilihPaket.value)||0;
+  const jumlahVal = Number(jumlah.value)||0;
+  const total = price * jumlahVal;
   totalDisplay.textContent = rupiah(total);
   return total;
 }
@@ -271,7 +272,7 @@ function generate(){
 👤 Nama: ${nama.value}
 👥 Jumlah Orang: ${jumlah.value}
 🏷 Kategori: ${kategori.value}
-📦 Paket: ${paket.options[paket.selectedIndex]?.text}
+📦 Paket: ${pilihPaket.options[pilihPaket.selectedIndex]?.text}
 🎨 Background: ${background.value}
 💰 Total Harga: ${rupiah(hitungTotal())}
 📅 Tanggal: ${tanggal.value}
