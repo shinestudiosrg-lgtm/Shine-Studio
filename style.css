@@ -1,84 +1,86 @@
+:root {
+    --blue: #0047BB;        /* Biru Shine */
+    --yellow: #FFD200;      /* Kuning Shine */
+    --white: #FFFFFF;
+    --darkblue: #002B70;    /* Shadow / Depth */
+}
+
 body {
     margin: 0;
-    background: #eef2ff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
+    color: var(--darkblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
-    width: 90%;
-    margin: auto;
-    margin-top: 40px;
     text-align: center;
+    padding: 25px;
+    width: 90%;
+    max-width: 450px;
+    animation: fade 1s ease;
 }
 
 .logo {
-    width: 130px;
+    width: 150px;
     margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
 }
 
 .username {
-    font-size: 24px;
-    font-weight: 600;
-    color: #0b3d91;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+    margin: 10px 0;
 }
 
 .bio {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 25px;
+    font-size: 15px;
+    opacity: 0.85;
+    margin-bottom: 30px;
 }
 
 .button {
-    background: white;
-    border-radius: 20px;
-    padding: 18px;
-    margin: 12px 0;
-    font-size: 16px;
-    color: #0b3d91;
+    background: var(--white);
+    border: 3px solid var(--yellow);
+    color: var(--blue);
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 18px;
+    font-size: 17px;
     font-weight: 600;
-    border: 2px solid #f2c200;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .button:hover {
-    background: #f2c200;
-    color: #fff;
+    background: var(--yellow);
+    color: var(--darkblue);
+    transform: translateY(-3px);
 }
 
-/* Booking form */
-.label {
-    display: block;
-    text-align: left;
-    margin-top: 15px;
-    font-weight: 600;
-    color: #0b3d91;
+/* Icon styling */
+.button i {
+    font-size: 18px;
 }
 
-select, input {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 10px;
-    border: 2px solid #0b3d91;
-    font-size: 16px;
+/* Fade animation */
+@keyframes fade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.total-container {
-    margin-top: 20px;
-    padding: 15px;
-    background: white;
-    border-radius: 15px;
-    border: 2px solid #f2c200;
-}
-
-.price-list {
-    text-align: left;
-    padding-left: 20px;
-}
-
-.subtitle {
-    text-align: left;
-    margin-top: 25px;
-    color: #0b3d91;
+/* Floating logo */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
 }
