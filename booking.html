@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Shine Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 class="title">Booking Shine Studio</h2>
+
+    <label class="label">Pilih Kategori</label>
+    <select id="kategori" onchange="updatePackage()">
+        <option value="">-- pilih kategori --</option>
+        <option value="fotobox">Foto Box</option>
+        <option value="fotostudio">Foto Studio</option>
+    </select>
+
+    <label class="label">Pilih Paket</label>
+    <select id="paket" onchange="updatePrice()">
+        <option value="">-- pilih paket --</option>
+    </select>
+
+    <label class="label">Jumlah Orang</label>
+    <input type="number" id="jumlah" placeholder="contoh: 5" oninput="updateTotal()">
+
+    <div class="total-container">
+        <p>Total Harga:</p>
+        <h2 id="total">0</h2>
+    </div>
+
+</div>
+
+</body>
+</html>
