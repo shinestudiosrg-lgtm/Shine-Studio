@@ -1,34 +1,141 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricelist - Shine Studio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price List — Shine Self Photo Studio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue-900:#003f7d;
+  --blue-700:#0056a6;
+  --yellow:#ffd000;
+  --card-bg:rgba(255,255,255,0.96);
+  --accent:#063b71;
+}
+
+body{
+  margin:0;
+  padding:24px;
+  font-family:'Montserrat',system-ui;
+  background:linear-gradient(180deg,#e9f6ff 0%,#fff9e6 100%);
+  color:var(--accent);
+}
+
+/* Header */
+header{
+  max-width:900px;
+  margin:0 auto 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.brand{
+  background:linear-gradient(90deg,#003f7d,#0056a6);
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:20px;
+}
+.subtitle{
+  font-size:18px;
+  font-weight:700;
+  color:var(--blue-700);
+}
+
+/* Container */
+.container{
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Card */
+.card{
+  background:var(--card-bg);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 8px 30px rgba(7,41,82,0.1);
+  border:1px solid rgba(0,63,125,0.08);
+  margin-bottom:20px;
+}
+
+/* Title */
+.section-title{
+  font-size:20px;
+  font-weight:800;
+  color:var(--blue-900);
+  margin-bottom:12px;
+}
+
+/* List */
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  font-size:16px;
+  font-weight:600;
+  border-bottom:1px dashed rgba(0,63,125,0.12);
+}
+.price-row:last-child{
+  border-bottom:none;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:20px;
+  color:#777;
+  font-size:14px;
+}
+</style>
+</head>
 <body>
+
+<header>
+  <div class="brand">Shine</div>
+  <div class="subtitle">Self Photo Studio — Price List</div>
+</header>
 
 <div class="container">
 
-    <h2 class="title">Pricelist Shine Studio</h2>
+  <!-- FOTO BOX -->
+  <div class="card">
+    <div class="section-title">📦 FOTO BOX</div>
 
-    <h3 class="subtitle">📦 Foto Box</h3>
-    <ul class="price-list">
-        <li>Basic — 10k</li>
-        <li>Premium — 20k</li>
-        <li>Gold — 25k</li>
-    </ul>
+    <div class="price-row"><span>Basic</span><span>10k</span></div>
+    <div class="price-row"><span>Premium</span><span>20k</span></div>
+    <div class="price-row"><span>Gold</span><span>25k</span></div>
+  </div>
 
-    <h3 class="subtitle">📷 Foto Studio</h3>
-    <ul class="price-list">
-        <li>Basic — 15k</li>
-        <li>Premium — 25k</li>
-        <li>Gold — 35k</li>
-        <li>Special Bundling — 80k</li>
-        <li>Special Group — 150k</li>
-        <li>Special Family — 200k</li>
-    </ul>
+  <!-- FOTO STUDIO -->
+  <div class="card">
+    <div class="section-title">🎥 FOTO STUDIO</div>
+
+    <div class="price-row"><span>Basic</span><span>15k</span></div>
+    <div class="price-row"><span>Premium</span><span>25k</span></div>
+    <div class="price-row"><span>Gold</span><span>35k</span></div>
+    <div class="price-row"><span>Special Bundling</span><span>80k</span></div>
+    <div class="price-row"><span>Special Group</span><span>150k</span></div>
+    <div class="price-row"><span>Special Family</span><span>200k</span></div>
+  </div>
+
+  <!-- ADDITIONAL -->
+  <div class="card">
+    <div class="section-title">✨ ADDITIONAL</div>
+
+    <div class="price-row"><span>Tambahan / Orang</span><span>25k</span></div>
+    <div class="price-row"><span>Tambahan / 10 menit</span><span>20k</span></div>
+    <div class="price-row"><span>Cetakan Foto / Strip</span><span>10k</span></div>
+    <div class="price-row"><span>Cetakan Premium</span><span>15k</span></div>
+    <div class="price-row"><span>Premium Props</span><span>5k – 10k</span></div>
+  </div>
+
+  <div class="footer">
+    Shine Self Photo Studio © 2025 — Serang
+  </div>
 
 </div>
 
