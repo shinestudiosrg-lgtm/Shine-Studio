@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    background: #eef2ff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.logo {
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0b3d91;
+}
+
+.bio {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.button {
+    background: white;
+    border-radius: 20px;
+    padding: 18px;
+    margin: 12px 0;
+    font-size: 16px;
+    color: #0b3d91;
+    font-weight: 600;
+    border: 2px solid #f2c200;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #f2c200;
+    color: #fff;
+}
+
+/* Booking form */
+.label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #0b3d91;
+}
+
+select, input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 2px solid #0b3d91;
+    font-size: 16px;
+}
+
+.total-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    border: 2px solid #f2c200;
+}
+
+.price-list {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.subtitle {
+    text-align: left;
+    margin-top: 25px;
+    color: #0b3d91;
+}
