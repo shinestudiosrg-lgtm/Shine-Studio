@@ -1,54 +1,167 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Price List — Shine Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Price List — Shine Self Photo Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --blue-main:#1e6bd6;
+  --blue-soft:#eaf2ff;
+  --yellow-main:#ffcc00;
+  --yellow-soft:#fff6d6;
+  --text-dark:#0f2f5a;
+  --card-bg:#ffffff;
+}
+
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family:Poppins,sans-serif;
-  background:linear-gradient(180deg,#e9f6ff,#fff9e6);
-  padding:22px;
+  padding:32px 16px;
+  font-family:'Montserrat',system-ui;
+  background:linear-gradient(135deg,var(--blue-soft),var(--yellow-soft));
+  color:var(--text-dark);
 }
+
+/* Header */
+header{
+  max-width:920px;
+  margin:0 auto 28px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand{
+  background:linear-gradient(135deg,var(--blue-main),#0f4fa8);
+  color:#fff;
+  padding:14px 22px;
+  border-radius:18px;
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:0.5px;
+  box-shadow:0 10px 25px rgba(30,107,214,.25);
+}
+
+.subtitle{
+  font-size:20px;
+  font-weight:700;
+  color:var(--blue-main);
+}
+
+/* Container */
+.container{
+  max-width:920px;
+  margin:0 auto;
+  display:grid;
+  gap:22px;
+}
+
+/* Card */
 .card{
-  max-width:520px;
-  margin:auto;
-  background:white;
+  background:var(--card-bg);
   border-radius:22px;
-  padding:22px;
-  box-shadow:0 12px 30px rgba(0,63,125,.15);
+  padding:22px 22px 18px;
+  box-shadow:0 18px 40px rgba(0,0,0,0.08);
+  position:relative;
+  overflow:hidden;
 }
-h2{color:#0047BB}
-.row{
+
+.card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  border:2px solid rgba(30,107,214,.08);
+  pointer-events:none;
+}
+
+/* Title */
+.section-title{
+  display:inline-block;
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:14px;
+  padding:8px 16px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--blue-main),var(--yellow-main));
+  color:#fff;
+}
+
+/* List */
+.price-row{
   display:flex;
   justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px dashed #ddd;
+  align-items:center;
+  padding:10px 4px;
+  font-size:16px;
+  font-weight:600;
+  border-bottom:1px dashed rgba(0,0,0,0.08);
 }
-.badge{
-  background:#FFD200;
-  padding:4px 10px;
-  border-radius:999px;
+
+.price-row span:last-child{
   font-weight:800;
+  color:var(--blue-main);
+}
+
+.price-row:last-child{
+  border-bottom:none;
+}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:30px;
+  font-size:14px;
+  color:#555;
 }
 </style>
 </head>
 
 <body>
-<div class="card">
-<h2>📦 FOTO BOX</h2>
-<div class="row"><span>Basic</span><span class="badge">10k</span></div>
-<div class="row"><span>Premium</span><span class="badge">20k</span></div>
-<div class="row"><span>Gold</span><span class="badge">25k</span></div>
 
-<h2>🎥 FOTO STUDIO</h2>
-<div class="row"><span>Basic</span><span class="badge">15k</span></div>
-<div class="row"><span>Premium</span><span class="badge">25k</span></div>
-<div class="row"><span>Gold</span><span class="badge">35k</span></div>
-<div class="row"><span>Special Family</span><span class="badge">200k</span></div>
+<header>
+  <div class="brand">Shine</div>
+  <div class="subtitle">Self Photo Studio — Price List</div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <div class="section-title">📦 FOTO BOX</div>
+    <div class="price-row"><span>Basic</span><span>10k</span></div>
+    <div class="price-row"><span>Premium</span><span>20k</span></div>
+    <div class="price-row"><span>Gold</span><span>25k</span></div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">🎥 FOTO STUDIO</div>
+    <div class="price-row"><span>Basic</span><span>15k</span></div>
+    <div class="price-row"><span>Premium</span><span>25k</span></div>
+    <div class="price-row"><span>Gold</span><span>35k</span></div>
+    <div class="price-row"><span>Special Bundling</span><span>80k</span></div>
+    <div class="price-row"><span>Special Group</span><span>150k</span></div>
+    <div class="price-row"><span>Special Family</span><span>200k</span></div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">✨ ADDITIONAL</div>
+    <div class="price-row"><span>Tambahan / Orang</span><span>25k</span></div>
+    <div class="price-row"><span>Tambahan / 10 menit</span><span>20k</span></div>
+    <div class="price-row"><span>Cetakan Foto / Strip</span><span>10k</span></div>
+    <div class="price-row"><span>Cetakan Premium</span><span>15k</span></div>
+    <div class="price-row"><span>Premium Props</span><span>5k – 10k</span></div>
+  </div>
+
+  <div class="footer">
+    Shine Self Photo Studio © 2025 — Serang
+  </div>
+
 </div>
+
 </body>
 </html>
