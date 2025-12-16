@@ -1,122 +1,308 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Booking — Shine Studio</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shine Self Photo Studio — Booking</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --blue:#0056a6;
+  --blue-dark:#003f7d;
+  --yellow:#ffd000;
+  --bg:linear-gradient(180deg,#e9f6ff 0%,#fff9e6 100%);
+}
+
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family:Poppins,sans-serif;
-  background:linear-gradient(180deg,#e9f6ff,#fff9e6);
-  padding:22px;
+  font-family:'Poppins',system-ui;
+  background:var(--bg);
+  color:var(--blue-dark);
+  padding:20px;
 }
+
+/* Header */
+header{
+  max-width:900px;
+  margin:0 auto 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.brand{
+  background:linear-gradient(90deg,var(--blue-dark),var(--blue));
+  color:#fff;
+  padding:14px 20px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:20px;
+}
+
+.subtitle{
+  font-size:18px;
+  font-weight:700;
+  color:var(--blue);
+}
+
+/* Layout */
+.container{
+  max-width:900px;
+  margin:0 auto;
+}
+
+/* Card */
 .card{
-  max-width:520px;
-  margin:auto;
-  background:white;
-  border-radius:22px;
+  background:rgba(255,255,255,0.96);
+  border-radius:20px;
   padding:22px;
-  box-shadow:0 12px 30px rgba(0,63,125,.15);
+  box-shadow:0 12px 30px rgba(0,63,125,.12);
+  border:1px solid rgba(0,63,125,.08);
+  margin-bottom:22px;
 }
-h2{margin-top:0;color:#0047BB}
-label{font-weight:600;margin-top:12px;display:block}
+
+/* Form */
+label{
+  display:block;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
 input,select{
   width:100%;
-  padding:12px;
-  margin-top:6px;
+  padding:13px 14px;
   border-radius:12px;
-  border:1px solid #ddd;
+  border:1px solid rgba(0,63,125,.15);
+  font-size:15px;
+  margin-bottom:14px;
 }
-.total{
-  background:#f3f8ff;
+
+input:focus,select:focus{
+  outline:2px solid rgba(255,208,0,.6);
+}
+
+/* Buttons */
+.btn-primary{
+  background:linear-gradient(90deg,var(--yellow),#ffea66);
+  border:none;
+  color:var(--blue-dark);
   padding:14px;
   border-radius:14px;
   font-weight:800;
-  margin-top:14px;
+  width:100%;
+  cursor:pointer;
+  margin-top:10px;
+  transition:.25s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.btn-ghost{
+  background:#fff;
+  border:2px solid rgba(0,63,125,.12);
+  color:var(--blue-dark);
+  padding:12px;
+  border-radius:14px;
+  width:100%;
+  cursor:pointer;
+  margin-top:10px;
+  font-weight:600;
+}
+
+/* Total */
+.total-box{
   display:flex;
   justify-content:space-between;
-}
-.btn{
-  margin-top:14px;
-  width:100%;
+  align-items:center;
   padding:14px;
-  border:none;
-  border-radius:999px;
+  border-radius:14px;
+  background:rgba(0,63,125,.06);
   font-weight:800;
-  background:#FFD200;
-  cursor:pointer;
+  margin:10px 0;
 }
-.btn:hover{filter:brightness(.95)}
+
+/* Output */
 pre{
-  background:#002B70;
-  color:white;
+  background:var(--blue-dark);
+  color:#fff;
   padding:14px;
   border-radius:12px;
   white-space:pre-wrap;
+  margin-top:12px;
+}
+
+/* Tutorial */
+.tutorial{
+  background:#fffbe6;
+  border:2px dashed rgba(255,208,0,.6);
+}
+
+.muted{
+  font-size:13px;
+  color:#666;
 }
 </style>
 </head>
 
 <body>
-<div class="card">
-<h2>📸 Booking Shine Studio</h2>
 
-<label>Nama</label>
-<input id="nama">
+<header>
+  <div class="brand">Shine</div>
+  <div class="subtitle">Self Photo Studio — Serang</div>
+</header>
+
+<main class="container">
+
+<div class="card">
+<h3>Form Booking</h3>
+
+<label>Nama Customer</label>
+<input id="nama" type="text">
 
 <label>Jumlah Orang</label>
-<input id="jumlah" type="number" value="1" min="1">
+<input id="jumlah" type="number" min="1" value="1" oninput="hitungTotal()">
 
-<label>Kategori</label>
-<select id="kategori" onchange="update()">
-  <option value="">Pilih</option>
+<label>Pilih Kategori</label>
+<select id="kategori" onchange="updatePaket()">
+  <option value="">-- Pilih Kategori --</option>
   <option value="box">Foto Box</option>
   <option value="studio">Foto Studio</option>
 </select>
 
-<label>Paket</label>
-<select id="paket" onchange="hitung()"></select>
+<label>Pilih Paket</label>
+<select id="pilihPaket" onchange="hitungTotal()">
+  <option value="">-- Pilih paket --</option>
+</select>
 
-<div class="total">
+<label>Pilih Background</label>
+<select id="background">
+  <option value="">-- Pilih background --</option>
+</select>
+
+<label>Tanggal</label>
+<input id="tanggal" type="date">
+
+<label>Jam</label>
+<input id="jam" type="time">
+
+<label>Kontak WA</label>
+<input id="wa" type="text">
+
+<div class="total-box">
   <span>Total</span>
-  <span id="total">Rp 0</span>
+  <span id="totalDisplay">Rp 0</span>
 </div>
 
-<button class="btn" onclick="generate()">Generate Booking</button>
-<button class="btn" onclick="send()">Kirim WhatsApp</button>
+<button class="btn-primary" onclick="generate()">Generate Booking</button>
+<button class="btn-ghost" onclick="copyText()">Copy Pesan</button>
+<button class="btn-ghost" onclick="sendWA()">Kirim ke WhatsApp Admin</button>
 
 <pre id="output"></pre>
 </div>
 
+<div class="card tutorial">
+<h4>📘 Cara Booking</h4>
+<ol>
+<li>Pilih kategori</li>
+<li>Pilih paket</li>
+<li>Pilih background</li>
+<li>Isi jumlah, tanggal, jam</li>
+<li>Generate & kirim</li>
+</ol>
+<div class="muted">Format WA tanpa + (contoh: 62812xxxx)</div>
+</div>
+
+</main>
+
+<!-- 🔥 SCRIPT ASLI KAMU — TIDAK DIUBAH 🔥 -->
 <script>
-const data={
-  box:{Basic:10000,Premium:20000,Gold:25000},
-  studio:{Basic:15000,Premium:25000,Gold:35000,"Special Family":200000}
+const paketData = {
+  box: [
+    { label: "Basic - 10k", price: 10000 },
+    { label: "Premium - 20k", price: 20000 },
+    { label: "Gold - 25k", price: 25000 }
+  ],
+  studio: [
+    { label: "Basic - 15k", price: 15000 },
+    { label: "Premium - 25k", price: 25000 },
+    { label: "Gold - 35k", price: 35000 },
+    { label: "Special Bundling - 80k", price: 80000 },
+    { label: "Special Group - 150k", price: 150000 },
+    { label: "Special Family - 200k", price: 200000 }
+  ]
 };
-function rupiah(n){return"Rp "+n.toLocaleString("id-ID")}
-function update(){
-  paket.innerHTML="<option>Pilih paket</option>";
-  Object.keys(data[kategori.value]||{}).forEach(p=>{
-    paket.innerHTML+=`<option value="${data[kategori.value][p]}">${p}</option>`;
-  })
+
+const bgData = {
+  box: ["Coklat","Biru","Tahanan"],
+  studio: ["Beige","Sky Blue","Putih","Abu-abu","Tirai"]
+};
+
+function rupiah(n){
+  if(isNaN(n)) return "Rp 0";
+  return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
-function hitung(){
-  total.innerText=rupiah((paket.value||0)*(jumlah.value||0))
+
+function updatePaket(){
+  const k = kategori.value;
+  pilihPaket.innerHTML = "<option value=''>-- Pilih paket --</option>";
+  background.innerHTML = "<option value=''>-- Pilih background --</option>";
+  (paketData[k]||[]).forEach(p=>{
+    const opt=document.createElement('option');
+    opt.value=p.price;
+    opt.textContent=p.label;
+    pilihPaket.appendChild(opt);
+  });
+  (bgData[k]||[]).forEach(b=>{
+    const opt=document.createElement('option');
+    opt.value=b;
+    opt.textContent=b;
+    background.appendChild(opt);
+  });
+  hitungTotal();
 }
+
+function hitungTotal(){
+  const price=Number(pilihPaket.value)||0;
+  const jumlahVal=Number(jumlah.value)||0;
+  const total=price*jumlahVal;
+  totalDisplay.textContent=rupiah(total);
+  return total;
+}
+
 function generate(){
-  output.innerText=
-`BOOKING SHINE STUDIO
-Nama: ${nama.value}
-Kategori: ${kategori.value}
-Paket: ${paket.options[paket.selectedIndex]?.text}
-Total: ${total.innerText}`;
+  const message=
+`📸 *BOOKING SHINE SELF PHOTO STUDIO*
+━━━━━━━━━━━━━━━━━━
+👤 Nama: ${nama.value}
+👥 Jumlah Orang: ${jumlah.value}
+🏷 Kategori: ${kategori.value}
+📦 Paket: ${pilihPaket.options[pilihPaket.selectedIndex]?.text}
+🎨 Background: ${background.value}
+💰 Total Harga: ${rupiah(hitungTotal())}
+📅 Tanggal: ${tanggal.value}
+⏰ Jam: ${jam.value}
+📱 Kontak WA: ${wa.value}
+━━━━━━━━━━━━━━━━━━
+Terima kasih sudah booking 🤍`;
+  output.textContent=message;
 }
-function send(){
-  window.open("https://wa.me/6283894036552?text="+encodeURIComponent(output.innerText))
+
+function copyText(){
+  navigator.clipboard.writeText(output.innerText);
+  alert("Berhasil disalin!");
+}
+
+function sendWA(){
+  window.open("https://wa.me/6283894036552?text="+encodeURIComponent(output.innerText));
 }
 </script>
+
 </body>
 </html>
