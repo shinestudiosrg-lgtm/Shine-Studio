@@ -1,76 +1,116 @@
 :root{
-  --blue:#0047BB;
-  --dark:#002B70;
-  --yellow:#FFD200;
-  --bg:linear-gradient(180deg,#e9f6ff 0%,#fff9e6 100%);
-  --shadow:0 12px 30px rgba(0,63,125,.15);
+  --blue:#1e6bd6;
+  --blue-dark:#0f4fa8;
+  --blue-soft:#eaf2ff;
+
+  --yellow:#ffcc00;
+  --yellow-soft:#fff4cc;
+
+  --text:#0f2f5a;
+  --white:#ffffff;
+
+  --shadow:0 30px 60px rgba(30,107,214,.18);
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 body{
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:var(--bg);
   min-height:100vh;
+  font-family:'Poppins',system-ui;
+  background:
+    radial-gradient(circle at top left, var(--yellow-soft), transparent 40%),
+    radial-gradient(circle at bottom right, var(--blue-soft), transparent 45%),
+    linear-gradient(135deg,#f7fbff,#fffaf0);
   display:flex;
   justify-content:center;
   align-items:center;
+  padding:24px;
+  color:var(--text);
 }
 
+/* CONTAINER */
 .container{
-  width:90%;
-  max-width:520px;
-  padding:28px;
+  width:100%;
+  max-width:420px;
+  padding:36px 30px;
   text-align:center;
 }
 
+/* GLASS CARD */
 .glass{
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(12px);
-  border-radius:26px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(0,63,125,.08);
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(18px);
+  border-radius:30px;
+  box-shadow:
+    var(--shadow),
+    inset 0 0 0 2px rgba(255,255,255,.5);
 }
 
-.username{
-  font-size:28px;
-  font-weight:800;
-  color:var(--blue);
-  margin:0;
-}
-
-.bio{
-  font-size:15px;
-  opacity:.85;
-  margin:14px 0 26px;
-}
-
-.button{
-  background:white;
-  border:3px solid var(--yellow);
-  color:var(--blue);
-  padding:15px;
-  margin:12px 0;
-  border-radius:999px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  transition:.25s;
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
-}
-
-.button:hover{
-  background:var(--yellow);
-  color:var(--dark);
-  transform:translateY(-3px);
-}
-
+/* ANIMATION */
 .reveal{
-  animation:fadeUp .7s ease both;
+  animation:fadeUp .9s ease forwards;
 }
 
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px)}
+  from{opacity:0; transform:translateY(18px)}
   to{opacity:1; transform:none}
+}
+
+/* USERNAME */
+.username{
+  font-size:26px;
+  font-weight:800;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+}
+
+/* BIO */
+.bio{
+  font-size:14px;
+  line-height:1.6;
+  color:#4b6fa8;
+  margin-bottom:28px;
+}
+
+/* BUTTON */
+.button{
+  margin:12px 0;
+  padding:15px 20px;
+  border-radius:20px;
+  font-weight:700;
+  cursor:pointer;
+  user-select:none;
+  background:linear-gradient(135deg,var(--yellow),#ffe066);
+  color:var(--blue-dark);
+  box-shadow:
+    0 12px 26px rgba(255,204,0,.35),
+    inset 0 0 0 2px rgba(255,255,255,.6);
+  transition:.25s ease;
+}
+
+.button:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:
+    0 18px 40px rgba(255,204,0,.45),
+    inset 0 0 0 2px rgba(255,255,255,.75);
+}
+
+.button:active{
+  transform:scale(.98);
+}
+
+/* MOBILE */
+@media (max-width:420px){
+  .container{
+    padding:30px 24px;
+  }
+  .username{
+    font-size:24px;
+  }
 }
