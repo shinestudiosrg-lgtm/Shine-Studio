@@ -1,300 +1,122 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Shine Self Photo Studio — Booking</title>
-<link rel="preconnect" href="https://fonts.gstatic.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Booking — Shine Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-  /* ===== FONT ===== */
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
-
-  :root{
-    --blue-900: #003f7d;
-    --blue-700: #0056a6;
-    --yellow: #ffd000;
-    --muted: #f5f8fb;
-    --card-bg: rgba(255,255,255,0.96);
-    --accent: #063b71;
-  }
-
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family: 'Montserrat', system-ui, -apple-system;
-    background: linear-gradient(180deg, #e9f6ff 0%, #fff9e6 100%);
-    color: var(--accent);
-    padding:24px;
-  }
-
-  /* Header */
-  header{
-    max-width:900px;
-    margin:0 auto 18px;
-    display:flex;
-    align-items:center;
-    gap:18px;
-  }
-  .brand {
-    background: linear-gradient(90deg, rgba(0,63,125,1), rgba(0,86,166,1));
-    color: white;
-    padding: 14px 18px;
-    border-radius: 12px;
-    font-weight:800;
-    font-size:20px;
-  }
-  header .subtitle { color: var(--blue-700); font-weight:700; font-size:18px; }
-
-  /* layout */
-  .container{
-    max-width:900px;
-    margin: 0 auto;
-  }
-
-  /* card style */
-  .card{
-    background: var(--card-bg);
-    border-radius:14px;
-    padding:18px;
-    box-shadow: 0 8px 30px rgba(7,41,82,0.08);
-    border: 1px solid rgba(0,63,125,0.06);
-    margin-bottom:20px;
-  }
-
-  label{ display:block; font-weight:700; margin-bottom:6px; color:var(--accent); }
-  input, select {
-    width:100%; padding:11px 12px; border-radius:10px; border:1px solid rgba(3,59,103,0.08);
-    font-size:15px; background: #fff;
-  }
-
-  .btn-primary{
-    background: linear-gradient(90deg,var(--yellow),#ffea66);
-    border:none;
-    color: var(--blue-900);
-    padding:12px 14px;
-    border-radius:10px;
-    font-weight:800;
-    width:100%;
-    cursor:pointer;
-    margin-top:10px;
-  }
-
-  .btn-ghost{
-    background:transparent;
-    border:2px solid rgba(0,63,125,0.08);
-    color:var(--accent);
-    padding:10px 12px;
-    border-radius:10px;
-    cursor:pointer;
-    margin-top:8px;
-  }
-
-  pre#output{
-    background: #003f7d;
-    color: white;
-    padding:12px;
-    border-radius:8px;
-    white-space:pre-wrap;
-    font-size:14px;
-    margin-top:10px;
-  }
-
-  /* tutorial */
-  .tutorial{
-    background:#fffbe6;
-    border:2px dashed rgba(255,208,0,0.6);
-    padding:12px;
-    border-radius:10px;
-  }
-
-  /* total box */
-  .total-box{
-    margin-top:8px;
-    padding:12px;
-    border-radius:10px;
-    background: linear-gradient(180deg, rgba(0,63,125,0.06), rgba(0,63,125,0.02));
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-weight:800;
-    color:var(--blue-900);
-  }
-
-  .muted{ color:#6b6b6b; font-weight:500; font-size:13px; }
+body{
+  margin:0;
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(180deg,#e9f6ff,#fff9e6);
+  padding:22px;
+}
+.card{
+  max-width:520px;
+  margin:auto;
+  background:white;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 12px 30px rgba(0,63,125,.15);
+}
+h2{margin-top:0;color:#0047BB}
+label{font-weight:600;margin-top:12px;display:block}
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border-radius:12px;
+  border:1px solid #ddd;
+}
+.total{
+  background:#f3f8ff;
+  padding:14px;
+  border-radius:14px;
+  font-weight:800;
+  margin-top:14px;
+  display:flex;
+  justify-content:space-between;
+}
+.btn{
+  margin-top:14px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:999px;
+  font-weight:800;
+  background:#FFD200;
+  cursor:pointer;
+}
+.btn:hover{filter:brightness(.95)}
+pre{
+  background:#002B70;
+  color:white;
+  padding:14px;
+  border-radius:12px;
+  white-space:pre-wrap;
+}
 </style>
 </head>
+
 <body>
+<div class="card">
+<h2>📸 Booking Shine Studio</h2>
 
-<header>
-  <div class="brand">Shine</div>
-  <div class="subtitle">Self Photo Studio — Serang</div>
-</header>
+<label>Nama</label>
+<input id="nama">
 
-<main class="container">
+<label>Jumlah Orang</label>
+<input id="jumlah" type="number" value="1" min="1">
 
-  <!-- Booking Form -->
-  <div class="card">
-    <h3 style="margin-top:0; color:var(--blue-900)">Form Booking</h3>
+<label>Kategori</label>
+<select id="kategori" onchange="update()">
+  <option value="">Pilih</option>
+  <option value="box">Foto Box</option>
+  <option value="studio">Foto Studio</option>
+</select>
 
-    <label>Nama Customer</label>
-    <input id="nama" type="text" placeholder="Nama lengkap">
+<label>Paket</label>
+<select id="paket" onchange="hitung()"></select>
 
-    <label>Jumlah Orang</label>
-    <input id="jumlah" type="number" min="1" value="1" oninput="hitungTotal()">
+<div class="total">
+  <span>Total</span>
+  <span id="total">Rp 0</span>
+</div>
 
-    <label>Pilih Kategori</label>
-    <select id="kategori" onchange="updatePaket()">
-      <option value="">-- Pilih Kategori --</option>
-      <option value="box">Foto Box</option>
-      <option value="studio">Foto Studio</option>
-    </select>
+<button class="btn" onclick="generate()">Generate Booking</button>
+<button class="btn" onclick="send()">Kirim WhatsApp</button>
 
-    <label>Pilih Paket</label>
-    <select id="pilihPaket" onchange="hitungTotal()">
-      <option value="">-- Pilih paket --</option>
-    </select>
-
-    <label>Pilih Background</label>
-    <select id="background">
-      <option value="">-- Pilih background --</option>
-    </select>
-
-    <label>Tanggal</label>
-    <input id="tanggal" type="date">
-
-    <label>Jam</label>
-    <input id="jam" type="time">
-
-    <label>Kontak WA</label>
-    <input id="wa" type="text" placeholder="08xxxxxxxxxx">
-
-    <div class="total-box">
-      <div>Total</div>
-      <div id="totalDisplay">Rp 0</div>
-    </div>
-
-    <button class="btn-primary" onclick="generate()">Generate Booking</button>
-    <button class="btn-ghost" onclick="copyText()">Copy Pesan</button>
-    <button class="btn-ghost" onclick="sendWA()">Kirim ke WhatsApp Admin</button>
-
-    <pre id="output" aria-live="polite"></pre>
-  </div>
-
-  <!-- Tutorial -->
-  <div class="card tutorial">
-    <h4 style="margin:0 0 8px 0">📘 Cara Booking</h4>
-    <ol style="margin:0 0 0 18px;">
-      <li>Pilih kategori.</li>
-      <li>Pilih paket.</li>
-      <li>Pilih background.</li>
-      <li>Isi jumlah orang, tanggal, jam.</li>
-      <li>Cek total harga.</li>
-      <li>Generate booking.</li>
-      <li>Kirim ke admin.</li>
-    </ol>
-    <div class="muted" style="margin-top:8px">Format WA tanpa tanda +, contoh: 62812xxxx</div>
-  </div>
-
-  <!-- Contact -->
-  <div class="card">
-    <h4 style="margin:0 0 8px 0; color:var(--blue-700)">Kontak & Lokasi</h4>
-    <div class="muted">📍 Perum. Persada Banten, Blok A7 no.4</div>
-    <div style="height:10px"></div>
-    <div class="muted">📱 WA Admin: <strong>+62 838-9403-6552</strong></div>
-    <button class="btn-primary" style="margin-top:8px"
-      onclick="location.href='https://wa.me/6283894036552'">Chat Admin</button>
-  </div>
-
-</main>
+<pre id="output"></pre>
+</div>
 
 <script>
-const paketData = {
-  box: [
-    { label: "Basic - 10k", price: 10000 },
-    { label: "Premium - 20k", price: 20000 },
-    { label: "Gold - 25k", price: 25000 }
-  ],
-  studio: [
-    { label: "Basic - 15k", price: 15000 },
-    { label: "Premium - 25k", price: 25000 },
-    { label: "Gold - 35k", price: 35000 },
-    { label: "Special Bundling - 80k", price: 80000 },
-    { label: "Special Group - 150k", price: 150000 },
-    { label: "Special Family - 200k", price: 200000 }
-  ]
+const data={
+  box:{Basic:10000,Premium:20000,Gold:25000},
+  studio:{Basic:15000,Premium:25000,Gold:35000,"Special Family":200000}
 };
-
-const bgData = {
-  box: ["Coklat","Biru","Tahanan"],
-  studio: ["Beige","Sky Blue","Putih","Abu-abu","Tirai"]
-};
-
-function rupiah(n){
-  if(isNaN(n)) return "Rp 0";
-  return "Rp " + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+function rupiah(n){return"Rp "+n.toLocaleString("id-ID")}
+function update(){
+  paket.innerHTML="<option>Pilih paket</option>";
+  Object.keys(data[kategori.value]||{}).forEach(p=>{
+    paket.innerHTML+=`<option value="${data[kategori.value][p]}">${p}</option>`;
+  })
 }
-
-function updatePaket(){
-  const k = kategori.value;
-
-  pilihPaket.innerHTML = "<option value=''>-- Pilih paket --</option>";
-  background.innerHTML = "<option value=''>-- Pilih background --</option>";
-  
-  (paketData[k]||[]).forEach(p=>{
-    const opt = document.createElement('option');
-    opt.value = p.price;
-    opt.textContent = p.label;
-    pilihPaket.appendChild(opt);
-  });
-
-  (bgData[k]||[]).forEach(b=>{
-    const opt = document.createElement('option');
-    opt.value = b;
-    opt.textContent = b;
-    background.appendChild(opt);
-  });
-
-  hitungTotal();
+function hitung(){
+  total.innerText=rupiah((paket.value||0)*(jumlah.value||0))
 }
-
-function hitungTotal(){
-  const price = Number(pilihPaket.value)||0;
-  const jumlahVal = Number(jumlah.value)||0;
-  const total = price * jumlahVal;
-  totalDisplay.textContent = rupiah(total);
-  return total;
-}
-
 function generate(){
-  const message =
-`📸 *BOOKING SHINE SELF PHOTO STUDIO*
-━━━━━━━━━━━━━━━━━━
-👤 Nama: ${nama.value}
-👥 Jumlah Orang: ${jumlah.value}
-🏷 Kategori: ${kategori.value}
-📦 Paket: ${pilihPaket.options[pilihPaket.selectedIndex]?.text}
-🎨 Background: ${background.value}
-💰 Total Harga: ${rupiah(hitungTotal())}
-📅 Tanggal: ${tanggal.value}
-⏰ Jam: ${jam.value}
-📱 Kontak WA: ${wa.value}
-━━━━━━━━━━━━━━━━━━
-Terima kasih sudah booking 🤍`;
-  
-  output.textContent = message;
+  output.innerText=
+`BOOKING SHINE STUDIO
+Nama: ${nama.value}
+Kategori: ${kategori.value}
+Paket: ${paket.options[paket.selectedIndex]?.text}
+Total: ${total.innerText}`;
 }
-
-function copyText(){
-  if(!output.innerText) return alert("Generate dulu pesannya.");
-  navigator.clipboard.writeText(output.innerText);
-  alert("Berhasil disalin!");
-}
-
-function sendWA(){
-  if(!output.innerText) return alert("Generate dulu pesannya.");
-  window.open("https://wa.me/6283894036552?text=" + encodeURIComponent(output.innerText));
+function send(){
+  window.open("https://wa.me/6283894036552?text="+encodeURIComponent(output.innerText))
 }
 </script>
-
 </body>
 </html>
