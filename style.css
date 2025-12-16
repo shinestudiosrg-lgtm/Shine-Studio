@@ -1,73 +1,76 @@
-:root {
-    --blue: #0047BB;        /* Biru Shine */
-    --yellow: #FFD200;      /* Kuning Shine */
-    --white: #FFFFFF;
-    --darkblue: #002B70;    /* Shadow / Depth */
+:root{
+  --blue:#0047BB;
+  --dark:#002B70;
+  --yellow:#FFD200;
+  --bg:linear-gradient(180deg,#e9f6ff 0%,#fff9e6 100%);
+  --shadow:0 12px 30px rgba(0,63,125,.15);
 }
 
-body {
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(180deg, #ffffff 0%, #f3f6ff 100%);
-    color: var(--darkblue);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.container {
-    text-align: center;
-    padding: 25px;
-    width: 90%;
-    max-width: 450px;
-    animation: fade 1s ease;
+.container{
+  width:90%;
+  max-width:520px;
+  padding:28px;
+  text-align:center;
 }
 
-.username {
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--blue);
-    margin: 10px 0;
+.glass{
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(0,63,125,.08);
 }
 
-.bio {
-    font-size: 15px;
-    opacity: 0.85;
-    margin-bottom: 30px;
+.username{
+  font-size:28px;
+  font-weight:800;
+  color:var(--blue);
+  margin:0;
 }
 
-.button {
-    background: var(--white);
-    border: 3px solid var(--yellow);
-    color: var(--blue);
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 18px;
-    font-size: 17px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.bio{
+  font-size:15px;
+  opacity:.85;
+  margin:14px 0 26px;
 }
 
-.button:hover {
-    background: var(--yellow);
-    color: var(--darkblue);
-    transform: translateY(-3px);
+.button{
+  background:white;
+  border:3px solid var(--yellow);
+  color:var(--blue);
+  padding:15px;
+  margin:12px 0;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
 }
 
-/* Icon styling */
-.button i {
-    font-size: 18px;
+.button:hover{
+  background:var(--yellow);
+  color:var(--dark);
+  transform:translateY(-3px);
 }
 
-/* Fade animation */
-@keyframes fade {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.reveal{
+  animation:fadeUp .7s ease both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px)}
+  to{opacity:1; transform:none}
 }
