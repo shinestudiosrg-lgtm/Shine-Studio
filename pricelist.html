@@ -1,167 +1,291 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Price List — Shine Self Photo Studio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price List — Shine Self Photo Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a1424;
+      --bg-soft:#121f35;
+      --card:#ffffff;
+      --text:#102745;
+      --muted:#637795;
+      --gold:#d8b36a;
+      --gold-soft:#f5e7c4;
+      --line:#e8edf5;
+      --blue:#234e96;
+      --shadow:0 26px 50px rgba(0,0,0,.18);
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    *{box-sizing:border-box;margin:0;padding:0}
 
-<style>
-:root{
-  --blue-main:#1e6bd6;
-  --blue-soft:#eaf2ff;
-  --yellow-main:#ffcc00;
-  --yellow-soft:#fff6d6;
-  --text-dark:#0f2f5a;
-  --card-bg:#ffffff;
-}
+    body{
+      font-family:'Montserrat',system-ui,sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(216,179,106,.16), transparent 25%),
+        linear-gradient(135deg, var(--bg), var(--bg-soft));
+      padding:28px 16px 40px;
+      color:#fff;
+    }
 
-*{box-sizing:border-box}
+    .wrap{
+      max-width:1080px;
+      margin:0 auto;
+    }
 
-body{
-  margin:0;
-  padding:32px 16px;
-  font-family:'Montserrat',system-ui;
-  background:linear-gradient(135deg,var(--blue-soft),var(--yellow-soft));
-  color:var(--text-dark);
-}
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:24px;
+    }
 
-/* Header */
-header{
-  max-width:920px;
-  margin:0 auto 28px;
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-.brand{
-  background:linear-gradient(135deg,var(--blue-main),#0f4fa8);
-  color:#fff;
-  padding:14px 22px;
-  border-radius:18px;
-  font-weight:800;
-  font-size:22px;
-  letter-spacing:0.5px;
-  box-shadow:0 10px 25px rgba(30,107,214,.25);
-}
+    .badge{
+      width:82px;
+      height:56px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+      color:#111827;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      font-size:22px;
+    }
 
-.subtitle{
-  font-size:20px;
-  font-weight:700;
-  color:var(--blue-main);
-}
+    .topbar h1{
+      font-size:28px;
+      margin-bottom:4px;
+    }
 
-/* Container */
-.container{
-  max-width:920px;
-  margin:0 auto;
-  display:grid;
-  gap:22px;
-}
+    .topbar p{
+      color:#cad4e3;
+      font-size:14px;
+    }
 
-/* Card */
-.card{
-  background:var(--card-bg);
-  border-radius:22px;
-  padding:22px 22px 18px;
-  box-shadow:0 18px 40px rgba(0,0,0,0.08);
-  position:relative;
-  overflow:hidden;
-}
+    .back-link{
+      text-decoration:none;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.14);
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+    }
 
-.card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:22px;
-  border:2px solid rgba(30,107,214,.08);
-  pointer-events:none;
-}
+    .hero-card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:28px;
+      padding:28px;
+      margin-bottom:22px;
+      box-shadow:var(--shadow);
+    }
 
-/* Title */
-.section-title{
-  display:inline-block;
-  font-size:18px;
-  font-weight:800;
-  margin-bottom:14px;
-  padding:8px 16px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--blue-main),var(--yellow-main));
-  color:#fff;
-}
+    .hero-card span{
+      display:inline-block;
+      margin-bottom:10px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:2px;
+      color:var(--gold-soft);
+    }
 
-/* List */
-.price-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 4px;
-  font-size:16px;
-  font-weight:600;
-  border-bottom:1px dashed rgba(0,0,0,0.08);
-}
+    .hero-card h2{
+      font-size:38px;
+      margin-bottom:12px;
+    }
 
-.price-row span:last-child{
-  font-weight:800;
-  color:var(--blue-main);
-}
+    .hero-card p{
+      max-width:760px;
+      line-height:1.75;
+      color:#d7e0ec;
+    }
 
-.price-row:last-child{
-  border-bottom:none;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
 
-/* Footer */
-.footer{
-  text-align:center;
-  margin-top:30px;
-  font-size:14px;
-  color:#555;
-}
-</style>
+    .card{
+      background:var(--card);
+      color:var(--text);
+      border-radius:26px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:6px;
+      background:linear-gradient(90deg,var(--gold),var(--blue));
+    }
+
+    .section-tag{
+      display:inline-flex;
+      align-items:center;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      background:#f6f9ff;
+      color:var(--blue);
+      margin-bottom:16px;
+    }
+
+    .card h3{
+      font-size:24px;
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:16px;
+      font-size:14px;
+    }
+
+    .price-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .price-row{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:12px 0;
+      border-bottom:1px dashed var(--line);
+      font-size:15px;
+    }
+
+    .price-row:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .price-row strong{
+      color:var(--blue);
+    }
+
+    .footer-note{
+      margin-top:24px;
+      text-align:center;
+      color:#c7d1df;
+      font-size:14px;
+    }
+
+    @media (max-width:980px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card h2{
+        font-size:30px;
+      }
+    }
+
+    @media (max-width:620px){
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero-card,
+      .card{
+        padding:20px;
+        border-radius:22px;
+      }
+
+      .topbar h1{
+        font-size:24px;
+      }
+
+      .hero-card h2{
+        font-size:26px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="badge">Shine</div>
+        <div>
+          <h1>Price List</h1>
+          <p>Shine Self Photo Studio — Serang</p>
+        </div>
+      </div>
+      <a class="back-link" href="index.html">Kembali ke Home</a>
+    </div>
 
-<header>
-  <div class="brand">Shine</div>
-  <div class="subtitle">Self Photo Studio — Price List</div>
-</header>
+    <section class="hero-card">
+      <span>PACKAGE INFORMATION</span>
+      <h2>Pilih paket yang paling cocok untuk momen terbaikmu.</h2>
+      <p>
+        Semua harga dibuat jelas, simple, dan mudah dipahami. Cocok untuk sesi self photo personal,
+        couple, bestie, group, maupun family session di Shine Self Photo Studio.
+      </p>
+    </section>
 
-<div class="container">
+    <section class="grid">
+      <article class="card">
+        <div class="section-tag">📦 FOTO BOX</div>
+        <h3>Simple & Fun</h3>
+        <p>Pilihan paket ringkas untuk pengalaman foto cepat, praktis, dan tetap estetik.</p>
+        <div class="price-list">
+          <div class="price-row"><span>Basic</span><strong>10k</strong></div>
+          <div class="price-row"><span>Premium</span><strong>20k</strong></div>
+          <div class="price-row"><span>Gold</span><strong>25k</strong></div>
+        </div>
+      </article>
 
-  <div class="card">
-    <div class="section-title">📦 FOTO BOX</div>
-    <div class="price-row"><span>Basic</span><span>10k</span></div>
-    <div class="price-row"><span>Premium</span><span>20k</span></div>
-    <div class="price-row"><span>Gold</span><span>25k</span></div>
+      <article class="card">
+        <div class="section-tag">🎥 FOTO STUDIO</div>
+        <h3>More Professional</h3>
+        <p>Paket studio dengan pilihan sesi yang lebih lengkap untuk hasil yang lebih maksimal.</p>
+        <div class="price-list">
+          <div class="price-row"><span>Basic</span><strong>15k</strong></div>
+          <div class="price-row"><span>Premium</span><strong>25k</strong></div>
+          <div class="price-row"><span>Gold</span><strong>35k</strong></div>
+          <div class="price-row"><span>Special Bundling</span><strong>80k</strong></div>
+          <div class="price-row"><span>Special Group</span><strong>150k</strong></div>
+          <div class="price-row"><span>Special Family</span><strong>200k</strong></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="section-tag">✨ ADDITIONAL</div>
+        <h3>Extra Service</h3>
+        <p>Tambahan layanan untuk kebutuhan sesi yang lebih fleksibel dan personal.</p>
+        <div class="price-list">
+          <div class="price-row"><span>Tambahan / Orang</span><strong>25k</strong></div>
+          <div class="price-row"><span>Tambahan / 10 Menit</span><strong>20k</strong></div>
+          <div class="price-row"><span>Cetakan Foto / Strip</span><strong>10k</strong></div>
+          <div class="price-row"><span>Cetakan Premium</span><strong>15k</strong></div>
+          <div class="price-row"><span>Premium Props</span><strong>5k – 10k</strong></div>
+        </div>
+      </article>
+    </section>
+
+    <div class="footer-note">Shine Self Photo Studio © 2026 — Serang</div>
   </div>
-
-  <div class="card">
-    <div class="section-title">🎥 FOTO STUDIO</div>
-    <div class="price-row"><span>Basic</span><span>15k</span></div>
-    <div class="price-row"><span>Premium</span><span>25k</span></div>
-    <div class="price-row"><span>Gold</span><span>35k</span></div>
-    <div class="price-row"><span>Special Bundling</span><span>80k</span></div>
-    <div class="price-row"><span>Special Group</span><span>150k</span></div>
-    <div class="price-row"><span>Special Family</span><span>200k</span></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">✨ ADDITIONAL</div>
-    <div class="price-row"><span>Tambahan / Orang</span><span>25k</span></div>
-    <div class="price-row"><span>Tambahan / 10 menit</span><span>20k</span></div>
-    <div class="price-row"><span>Cetakan Foto / Strip</span><span>10k</span></div>
-    <div class="price-row"><span>Cetakan Premium</span><span>15k</span></div>
-    <div class="price-row"><span>Premium Props</span><span>5k – 10k</span></div>
-  </div>
-
-  <div class="footer">
-    Shine Self Photo Studio © 2025 — Serang
-  </div>
-
-</div>
-
 </body>
 </html>
